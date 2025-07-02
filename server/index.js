@@ -3,10 +3,10 @@ const http = require("http");
 const cors = require("cors");
 const { Server } = require("socket.io");
 
-const app = express();
+const cors = require("cors");
 app.use(cors({
-  origin: "https://tic-tac-toe-sigma-one-60.vercel.app", // Add https://
-  methods: ["GET", "POST"],
+  origin: "https://tic-tac-toe-sigma-one-60.vercel.app", // Your real frontend URL
+  methods: ["GET", "POST"]
 }));
 
 const server = http.createServer(app);
