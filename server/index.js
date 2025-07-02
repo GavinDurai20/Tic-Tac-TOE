@@ -4,7 +4,10 @@ const cors = require("cors");
 const { Server } = require("socket.io");
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: "https://tic-tac-toe-sigma-one-60.vercel.app", // Add https://
+  methods: ["GET", "POST"],
+}));
 
 const server = http.createServer(app);
 const io = new Server(server, {
@@ -67,4 +70,7 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(5000, () => console.log("Server listening on http://localhost:5000"));
+
+const PORT = process.env.PORT || 5000;
+server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
